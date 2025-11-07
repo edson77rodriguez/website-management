@@ -1,0 +1,28 @@
+// Archivo: resources/scss/_variables.scss
+
+// 1. Paleta de colores (basada en tu imagen)
+// ----------------------------------------------------
+$color-charcoal:    #464655;  // Tu gris oscuro/carbón
+$color-steel-blue:  #5A768F;  // Tu azul acero (será nuestro primario)
+$color-sky-blue:    #6EB4C1;  // Tu azul medio
+$color-light-blue:  #B8D8D8;  // Tu azul claro (será nuestro fondo "light")
+$color-taupe:       #8A817C;  // Tu gris cálido/topo
+$color-light-grey:  #f4f6f9;  // Un gris muy claro para el fondo general
+
+// 2. Sobrescribir el tema de Bootstrap
+// ----------------------------------------------------
+// Aquí mapeamos tus colores a las variables de Bootstrap.
+// Bootstrap usará TUS colores automáticamente.
+$primary:       $color-steel-blue;
+$secondary:     $color-sky-blue;
+$dark:          $color-charcoal;
+$light:         $color-light-blue;
+$body-bg:       $color-light-grey;
+$body-color:    $color-charcoal;
+$headings-color: $color-charcoal;
+
+// 3. Opcional: Fuentes elegantes
+// ----------------------------------------------------
+// Esto le da un toque más serio y académico.
+$headings-font-family: 'Georgia', 'Times New Roman', serif;
+$font-family-sans-serif: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
