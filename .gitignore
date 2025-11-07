@@ -1,4 +1,5 @@
 *.log
+# /public/build
 .DS_Store
 .env
 .env.backup
