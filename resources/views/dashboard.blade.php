@@ -68,19 +68,21 @@
                                         {{ Auth::user()->isAdministrador() ? 'Gestión completa del sistema académico' : (Auth::user()->isDocente() ? 'Controla tus clases y estudiantes' : 'Revisa tu progreso académico') }}
                                     </p>
                                     <div class="d-flex flex-wrap gap-2 align-items-center">
-                                        <span class="badge bg-white bg-opacity-20 text-white border-0 py-2 px-3">
+                                        <span class="badge bg-black bg-opacity-20 text-white border-0 py-2 px-3">
                                             <i class="bi bi-person-badge me-1"></i>
-                                            @if(Auth::user()->isAdministrador())
-                                                Rol: Administrador
-                                            @elseif(Auth::user()->isDocente())
-                                                Rol: Docente
-                                            @elseif(Auth::user()->isEstudiante())
-                                                Rol: Estudiante
-                                            @endif
+                                            <span class="fw-bold">
+                                                @if(Auth::user()->isAdministrador())
+                                                    Rol: Administrador
+                                                @elseif(Auth::user()->isDocente())
+                                                    Rol: Docente
+                                                @elseif(Auth::user()->isEstudiante())
+                                                    Rol: Estudiante
+                                                @endif
+                                            </span>
                                         </span>
-                                        <span class="badge bg-white bg-opacity-20 text-white border-0 py-2 px-3">
+                                        <span class="badge bg-black bg-opacity-20 text-white border-0 py-2 px-3">
                                             <i class="bi bi-calendar-check me-1"></i>
-                                            Último acceso: {{ Auth::user()->updated_at->format('d/m/Y') }}
+                                            <span class="fw-bold">Último acceso: {{ Auth::user()->updated_at->format('d/m/Y') }}</span>
                                         </span>
                                     </div>
                                 </div>
@@ -93,7 +95,6 @@
                         </div>
                         <!-- Background Pattern -->
                         <div class="position-absolute top-0 end-0 w-50 h-100 opacity-10">
-                            <div class="w-100 h-100" style="background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"2\" fill=\"white\"/></svg>') repeat;"></div>
                         </div>
                     </div>
                 </div>

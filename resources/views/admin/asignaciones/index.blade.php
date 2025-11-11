@@ -272,7 +272,7 @@
                                         <div class="modal fade" id="deleteModal{{ $asignacion->id }}" tabindex="-1">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content border-0 shadow">
-                                                    <div class="modal-header border-0">
+                                                    <div class="modal-header border-0 bg-danger bg-opacity-10">
                                                         <h5 class="modal-title fw-bold text-danger">
                                                             <i class="bi bi-exclamation-triangle-fill me-2"></i>
                                                             Confirmar Eliminación
@@ -280,8 +280,9 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p class="mb-3">¿Estás seguro de que deseas eliminar esta asignación?</p>
-                                                        <div class="alert alert-warning border-0 bg-warning bg-opacity-10">
+                                                        <p class="mb-3 fw-semibold">¿Estás seguro de que deseas eliminar esta asignación?</p>
+                                                        
+                                                        <div class="alert alert-warning border-0 bg-warning bg-opacity-10 mb-3">
                                                             <div class="row g-2">
                                                                 <div class="col-12">
                                                                     <div class="d-flex align-items-center mb-2">
@@ -312,10 +313,16 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <p class="text-danger small mb-0">
-                                                            <i class="bi bi-info-circle me-1"></i>
-                                                            Esta acción no se puede deshacer. Se perderán todos los datos asociados a esta asignación.
-                                                        </p>
+
+                                                        <div class="alert alert-danger border-0 bg-danger bg-opacity-10 mb-3">
+                                                            <h6 class="fw-bold text-danger mb-2">
+                                                                <i class="bi bi-exclamation-circle me-1"></i>
+                                                                Importante:
+                                                            </h6>
+                                                            <p class="mb-0 small">
+                                                                Se eliminarán todos los registros asociados a esta asignación, incluyendo asistencias y calificaciones. Esta acción no se puede deshacer.
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                     <div class="modal-footer border-0">
                                                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">

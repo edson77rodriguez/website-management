@@ -109,18 +109,42 @@ class AsignacionController extends Controller
     /**
      * Elimina la asignación de la base de datos.
      */
+    /**
+     * Elimina la asignación de la base de datos.
+     */
+  /**
+     * Elimina la asignación de la base de datos.
+     */
     public function destroy(Asignacion $asignacion)
     {
-        // VERIFICACIÓN DE SEGURIDAD
-        // No podemos borrar una asignación si ya tiene registros de asistencia
+        // --- INICIO DE LA CORRECCIÓN ---
+
+        // 1. VERIFICACIÓN DE ASISTENCIAS
+        // El controlador pregunta: "¿Esta asignación tiene asistencias?"
         if ($asignacion->asistencias()->exists()) {
             return redirect()->route('admin.asignaciones.index')
-                             ->with('error', 'No se puede eliminar. Esta asignación ya tiene registros de asistencia.');
+                             ->with('error', 'No se puede eliminar. Esta asignación ya tiene registros de ASISTENCIA.');
         }
 
-        $asignacion->delete();
+        // 2. VERIFICACIÓN DE CALIFICACIONES
+        // El controlador pregunta: "¿Esta asignación tiene calificaciones?"
+        if ($asignacion->calificaciones()->exists()) {
+            return redirect()->route('admin.asignaciones.index')
+                             ->with('error', 'No se puede eliminar. Esta asignación ya tiene CALIFICACIONES registradas.');
+        }
 
-        return redirect()->route('admin.asignaciones.index')
-                         ->with('success', 'Asignación eliminada exitosamente.');
+        // 3. SI PASA AMBAS PRUEBAS, SE ELIMINA
+        try {
+            $asignacion->delete();
+
+            return redirect()->route('admin.asignaciones.index')
+                             ->with('success', 'Asignación eliminada exitosamente.');
+                             
+        } catch (\Exception $e) {
+            // Un 'catch' final por si algo más falla
+            return redirect()->route('admin.asignaciones.index')
+                             ->with('error', 'Error inesperado al eliminar la asignación: ' . $e->getMessage());
+        }
+        // --- FIN DE LA CORRECCIÓN ---
     }
 }

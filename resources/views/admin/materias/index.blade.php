@@ -111,7 +111,11 @@
                                 <h3 class="fw-bold text-success mb-0">
                                     {{ $materias->whereNotNull('clave_materia')->count() }}
                                 </h3>
-                                <small class="text-muted">{{ number_format(($materias->whereNotNull('clave_materia')->count() / $materias->count()) * 100, 1) }}%</small>
+                                @if($materias->count() > 0)
+                                    <small class="text-muted">{{ number_format(($materias->whereNotNull('clave_materia')->count() / $materias->count()) * 100, 1) }}%</small>
+                                @else
+                                    <small class="text-muted">0%</small>
+                                @endif
                             </div>
                             <div class="flex-shrink-0">
                                 <i class="bi bi-key display-6 text-success opacity-50"></i>
