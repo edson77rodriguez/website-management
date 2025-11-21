@@ -109,8 +109,8 @@ Route::middleware(['auth', 'role:Administrador'])
     Route::resource('semestres', SemestreController::class); // <-- AÑADE ESTA LÍNEA
     Route::resource('grupos', GrupoController::class); // <-- AÑADE ESTA LÍNEA
     Route::resource('materias', MateriaController::class); // <-- AÑADE ESTA LÍNEA
-    Route::resource('asignaciones', AsignacionController::class); // <-- AÑADE ESTA LÍNEA
-
+Route::resource('asignaciones', AsignacionController::class)
+     ->parameters(['asignaciones' => 'asignacion']);
 });
 
 // --- SECCIÓN SOLO PARA DOCENTES ---
